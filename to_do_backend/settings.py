@@ -75,10 +75,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'to_do_backend.wsgi.application'
 
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://todo-list-frontend-hx7zj9fd8-kokmokiks-projects.vercel.app/",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
