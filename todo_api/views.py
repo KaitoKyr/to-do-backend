@@ -18,7 +18,7 @@ def tasksView(request):
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
-@api_view(['GET', 'PATCH', 'PUT', 'DELETE'])
+@api_view(['GET', 'PATCH', 'DELETE'])
 def tasksViewDetailed(request, pk):
     try:
         task = Tasks.objects.get(id=pk)
@@ -29,7 +29,7 @@ def tasksViewDetailed(request, pk):
         serializer = TasksSerializer(task)
         return Response(serializer.data)
     
-    elif request.method in ['PATCH', 'PUT']:
+    elif request.method == 'PATCH':
         serializer = TasksSerializer(task, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
